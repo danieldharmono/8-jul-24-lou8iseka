@@ -1,84 +1,70 @@
-document.addEventListener("DOMContentLoaded"), function() {
-    const calculateBtn = document.getElementById("calculate");
-    const resetBtn = document.getElementById("reset");
-}
-    calculateBtn.addEventListener("click", function()  {
-        // bmi calculate
-      height = height / 100; // Konversi tinggi dari cm ke meter
-      let BMI = weight / (height * height);
-
-      // Display the bmi
-      document.getElementById("result").textContent = BMI.toFixed(2);
-
-      // find the bmi status
-      let status = "";
-      if (BMI < 18.5) {
-          status = "Underweight";
-      } else if (BMI >= 18.5 && BMI < 25) {
-          status = "Healthy";
-      } else if (BMI >= 25 && BMI < 30) {
-          status = "Overweight";
-      } else {
-          status = "Obese";
-      }
-
-      // Display the bmi status
-      document.getElementById("comment").textContent = status;
-    });
-
-function calculate(){
-
-    if (isNaN(age) || isNaN(height) || isNaN(weight) || age <= 0 || height <= 0 || weight <= 0){
-        alert("Please fill out all fields with valid numbers.");
-        return;
-
-    }else{
-        countBmi();
-    }
-}
-
-
-function countBmi(){
-    var p = [age.value, height.value, weight.value];
-    if(male.checked){
-        p.push("male");
-    }else if(female.checked){
-        p.push("female")
-    }
-
-    var bmi = Number(p[2])/(Number(p[1])/100*Number(p[1])/100);
-
-    var result = '';
-    if(bmi<18.5){
-        result = 'underweight';
-        }else if(18.5<=bmi&&bmi<=24.9){
-        result = 'healthy';
-        }else if(25<=bmi&bmi<=29.9){
-        result = 'overweight';
-        }else if(30<=bmi&bmi<=34.9){
-        result = 'obese';
-        }else if(35<=bmi){
-        result = 'extremely obese'
-        }
+function calculate() {
+    var age = document.getElementById("age").value;
+    var height = document.getElementById("height").value;
+    var weight = document.getElementById("weight").value;
 
     
-    resultArea.style.display = "block";
-    document.querySelector(".comment").innerHTML = `You are <span id="comment">${result}</span>`;
-    document.querySelector("#result").innerHTML = bmi.toFixed(2);
-
+    if (!age || !height || !weight) {
+        showModal("Please fill in all the fields.");
+        return;
     }
 
+    height = parseFloat(height);
+    weight = parseFloat(weight);
+
+    if (height <= 0 || weight <= 0) {
+        showModal("Height and weight must be positive values.");
+        return;
+    }
+
+    var bmi = weight / ((height / 100) * (height / 100));
+    bmi = bmi.toFixed(1);
+
+    document.getElementById("result").innerText = bmi;
+
+    var comment = "";
+    if (bmi < 18.5) {
+        comment = "Underweight";
+    } else if (bmi >= 18.5 && bmi <= 25) {
+        comment = "Normal";
+    } else if (bmi >= 25 && bmi <= 30) {
+        comment = "Overweight";
+    } else if (bmi >= 30 && bmi <= 35) {
+        comment = "Obese";
+    } else {
+        comment = "Extremely Obese";
+    }
+
+    document.querySelector(".comment").innerText = comment;
+}
+
+function reset() {
+    document.getElementById("age").value = "";
+    document.getElementById("height").value = "";
+    document.getElementById("weight").value = "";
+    document.getElementById("result").innerText = "0";
+    document.querySelector(".comment").innerText = "";
+}
 
 
-    // When the user clicks on <span> (x), close the modal
+function showModal(message) {
+    var modal = document.getElementById("myModal");
+    var modalText = document.getElementById("modalText");
+    modalText.innerText = message;
+    modal.style.display = "block";
+
+
+    var span = document.getElementsByClassName("close")[0];
     span.onclick = function() {
         modal.style.display = "none";
     }
 
-    // When the user click anywhere outside of the modal, close it
+  
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
     }
-      
+}
+document.getElementById("submit").addEventListener("click", calculate);
+document.getElementById("reset").addEventListener("click", reset);

@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap");
+
+/* css untuk body */
     * {
     box-sizing: border-box;
     padding: 0;
@@ -14,6 +16,7 @@
         background-color: rgb(22, 71, 50, 0.9);
     }
 
+    /* css untuk box */
     .box {
         width: 500px;
         background: #f4ecc5;
@@ -30,6 +33,7 @@
 
     }
 
+    /* css untuk content */
     .content {
         padding: 0 30px;
     }
@@ -60,6 +64,7 @@
         font-family: "Jost", sans-serif;
     }
 
+    /* css untuk input weight */
     .inputW {
         background: #fff;
         box-shadow: 0px 0px 95px -30px rgba(0, 0, 0, 0.15);
@@ -68,6 +73,7 @@
         margin-bottom: 20px;
     }
 
+    /* css untuk input label for weight */
     .inputW label {
         display:block;
         font-size: 18px;
@@ -86,6 +92,7 @@
         font-family: "Jost", sans-serif;
     }
 
+    /* css untuk input weight */
     .inputH {
         background: #fff;
         box-shadow: 0px 0px 95px -30px rgba(0, 0, 0, 0.15);
@@ -94,6 +101,7 @@
         margin-bottom: 20px;
     }
 
+    /* css input for label for height */
     .inputH label {
         display: block;
         font-size: 18px;
@@ -112,7 +120,50 @@
         font-family: "Jost", sans-serif;
     }
 
+    /* grup gender */
+.gender {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    font-weight: 300;
+  gap: 10px;
 
+}
+/* input radio gender */
+.gender input[type=radio]{
+    margin: 0 0px 0 0;
+    display: none;
+    
+    
+}
+/* untuk hover label gender */
+.gender label:hover{
+    background-color: #787878;
+}
+/* untuk label yang dipilih pada input radio gender */
+.gender input[type=radio]:checked + label{
+    background-color: #6dd18d;
+    font-weight: bold;
+}
+/* untuk label gender */
+.gender label {
+    display: flex;
+    margin-left: 25px;
+   border-radius: 5px;
+   width: 100px;
+   justify-content: center;
+   padding: 5px 10px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+   padding: 10px 20px;
+   color: rgb(69, 69, 69);
+   align-items: center;
+   gap: 5px;
+   background-color: #a6a8ab;
+}
+
+    /* css untuk calculate button */
     button.calculate {
         cursor: pointer;
         font-family: "Jost", sans-serif;
@@ -127,6 +178,8 @@
         transition: all 0.5s;
         margin-bottom: 20px;
     }
+
+    /* css untuk buttonnya */
     button.calculate:hover {
         background: #115842;
     }
@@ -184,12 +237,59 @@
         padding: 5px;
     }
 
-    .footer {
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        padding: 10px 15px;
+    /* CSS untuk sidebar informasi */
+.side-info {
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 40px;
+    gap: 70px;
+    width: 500px;
+    background: #f4ecc5;
+    padding: 20px;
+    border-radius: 50px;
+    text-align: left;
+    height: 769px;
+    font-family: "Jost", sans-serif;
+    
+}
+    /* judul h2 dalam sidebar */
+    .side-info h2 {
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: bold;
     }
+    /* paragraf dalam sidebar */
+    .side-info p {
+        margin-bottom: 10px;
+    }
+    /* daftar dalam sidebar */
+    .side-info ul {
+        padding-left: 20px;
+    }
+    /* item daftar dalam sidebar */
+    .side-info li {
+        margin-bottom: 5px;
+        list-style-type: disc;
+    }
+            /* komentar BMI */
+        .result-container .comment {
+            font-size: 16px;
+        color: #333;
+        }
+
+        /* teks komentar BMI */
+        #comment {
+            font-weight: 800;
+            color: #000000;
+        }
+
+        /* css for footer */
+        .footer {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            padding: 10px 15px;
+        }
 
     .footer-text {
         text-decoration: none;

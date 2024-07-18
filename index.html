@@ -18,18 +18,18 @@
                 <input type="text" class="text-input" id="age" autocomplete="off" required/>
             </div>
 
-            <div class="gender">
-            <!-- Male radio button -->
-                <label class="container">
-                    <input type="radio" name="radio" id="m"><p class="text">Male</p>
-                    <span class="checkmark"></span>
-                </label>
-
-            <!-- Female radio button -->
-                <label class="container">
-                    <input type="radio" name="radio" id="f"><p class="text">Female</p>
-                    <span class="checkmark"></span>
-                </label>
+            <div class="container">
+                <div class="gender">
+    
+                    <!-- Radio button untuk laki-laki -->
+                    <input type="radio" id="selection-man" name="gender" value="male" checked>
+                    <label for="selection-man">Male</label>
+                    
+            
+                    <!-- Radio button untuk perempuan -->
+                    <input type="radio" id="selection-woman" name="gender" value="female">
+                    <label for="selection-woman">Female</label>
+            </div>
         
         </div>
 
@@ -87,18 +87,16 @@
     </div>
 </div>
 
+<!-- Side information -->
+<div class="side-info">
+    <h2>BMI Description</h2>
+    <p>BMI (Body Mass Index) is a measurement used to determine whether your weight is within a healthy range. This calculator should only be used by adults (pregnant or breastfeeding women should not rely on this BMI reading) and no action should be taken based on it.
+        its value in addition to consulting a qualified person such as a doctor. This calculator will give you an idea of ​​how your weight compares to general values.
+        Body Mass Index is calculated as your weight (in kilograms) divided by the square of your height (in meters).
+    </p>
+</div>
 
-
-        <!-- the modal -->
-        <div id="myModal" class="modal">
-            <!-- modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p id="modalText"></p>
-        </div></div>
-
-
-
+<!-- script javascript external -->
 <script src="js/scripts.js"></script>
 
 </body>
